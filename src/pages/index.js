@@ -1,5 +1,10 @@
 import React from "react"
 
+import Container from "../components/container"
+
 export default () => (
-    <div style={{ color: `purple`, fontSize: `72px` }}>Hello Gatsby!</div>
-  );
+  <Container>
+    <h1>About CSS Modules</h1>
+    <p>CSS Modules are cool</p>
+  </Container>
+);
