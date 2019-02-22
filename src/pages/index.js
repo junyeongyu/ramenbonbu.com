@@ -2,6 +2,8 @@ import React from "react"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 
+import { graphql } from "gatsby"
+
 const Container = styled.div`
   margin: 3rem auto;
   max-width: 600px;
@@ -61,9 +63,9 @@ const User = props => (
   </UserWrapper>
 )
 
-export default () => (
+export default ({ data }) => (
   <Container>
-    <h1 css={underline}>About Emotion</h1>
+    <h1 css={underline}>{data.site.siteMetadata.title}</h1>
     <p>Emotion is uber cool</p>
     <User
       username="Jane Doe"
@@ -77,3 +79,13 @@ export default () => (
     />
   </Container>
 );
+
+export const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
